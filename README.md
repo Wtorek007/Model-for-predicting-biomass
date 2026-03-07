@@ -1,4 +1,4 @@
-# Code for contest: https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-ekologii/studia-na-wydziale/rolnictwo-dla-absolwentow-nierolniczych-studiow-wyzszych/
+# Studia podyplomowe https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-ekologii/studia-na-wydziale/rolnictwo-dla-absolwentow-nierolniczych-studiow-wyzszych/
 
 
 # Model for predicting biomass components from pasture images (DINOv3) 🌾🤖
@@ -41,6 +41,7 @@ Model stanowi implementację systemów wspomagania decyzji (DSS) w zakresie prec
 ---
 *Projekt wykonany w środowisku Google Colab z wykorzystaniem akceleracji GPU Tesla T4.*
 
+# Code for contest:
 Train models that predict pasture biomass components from pasture images (plus optional auxiliary signals like NDVI/height).
 
 This repository was created for a thesis at the Warsaw University of Life Sciences (SGGW) on “Agriculture for non-agricultural university graduates”.
