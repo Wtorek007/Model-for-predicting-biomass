@@ -23,6 +23,8 @@ Celem projektu jest opracowanie i weryfikacja modelu głębokiego uczenia zdolne
 ## 📊 Wyniki (Po 50 Epokach)
 Model został wytrenowany do jednoczesnej predykcji biomasy całkowitej oraz zielonej (Multi-target Regression).
 
+![Wykresy wyników](results_plot.png)
+
 | Zmienna | MAE [g] | RMSE [g] | R² |
 | :--- | :---: | :---: | :---: |
 | **Dry Total Biomass** | 15.64 | 21.76 | **0.394** |
@@ -31,6 +33,8 @@ Model został wytrenowany do jednoczesnej predykcji biomasy całkowitej oraz zie
 ### Wnioski z badań:
 * Współczynnik determinacji **R² ≈ 0.41** dla biomasy zielonej potwierdza wysoką zdolność modelu do ekstrakcji cech fotosyntetycznych.
 * **Mapy Atencji (Attention Maps)** wykazały, że model poprawnie koncentruje się na strukturach roślinnych, ignorując glebę i cienie.
+
+![Mapa atencji](attention_map.png)
 
 ## 📚 Kontekst Naukowy
 Projekt opiera się na metodologii rolnictwa precyzyjnego opisanej w publikacji:
