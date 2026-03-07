@@ -3,6 +3,45 @@
 
 # Model for predicting biomass components from pasture images
 
+# Model Predykcji Biomasy Pastwisk (DINOv3) 🌾🤖
+
+### Projekt realizowany w ramach studiów podyplomowych na SGGW
+**Autor:** Marcin Wtorkiewicz  
+**Promotor:** dr hab. Dariusz Gozdowski  
+**Temat:** Model predykcji biomasy pastwisk z wykorzystaniem architektury Vision Transformer (DINOv3)
+
+---
+
+## 📝 Opis Projektu
+Celem projektu jest opracowanie i weryfikacja modelu głębokiego uczenia zdolnego do szacowania biomasy pastwisk na podstawie obrazów cyfrowych. W przeciwieństwie do tradycyjnych metod (np. NDVI), model oparty na architekturze **DINOv3** analizuje teksturę i morfologię łanu (źdźbła, liście), co pozwala uniknąć problemu nasycenia sygnału przy wysokiej biomasie.
+
+## 🚀 Technologia
+* **Model:** DINOv3 (Vision Transformer - ViT)
+* **Framework:** PyTorch, `timm` (PyTorch Image Models)
+* **Dane:** Zbiór obrazów pastwisk (Kaggle CSIRO Biomass) o wysokiej rozdzielczości wejściowej **518x518 px**.
+* **Augmentacja:** Albumentations (RandomRotate, ColorJitter, Flips).
+
+## 📊 Wyniki (Po 50 Epokach)
+Model został wytrenowany do jednoczesnej predykcji biomasy całkowitej oraz zielonej (Multi-target Regression).
+
+| Zmienna | MAE [g] | RMSE [g] | R² |
+| :--- | :---: | :---: | :---: |
+| **Dry Total Biomass** | 15.64 | 21.76 | **0.394** |
+| **Dry Green Biomass** | 13.77 | 19.54 | **0.407** |
+
+### Wnioski z badań:
+* Współczynnik determinacji **R² ≈ 0.41** dla biomasy zielonej potwierdza wysoką zdolność modelu do ekstrakcji cech fotosyntetycznych.
+* **Mapy Atencji (Attention Maps)** wykazały, że model poprawnie koncentruje się na strukturach roślinnych, ignorując glebę i cienie.
+
+## 📚 Kontekst Naukowy
+Projekt opiera się na metodologii rolnictwa precyzyjnego opisanej w publikacji:
+> *Samborski S. (red.), Rolnictwo precyzyjne, Wydawnictwo Naukowe PWN, Warszawa 2019.*
+
+Model stanowi implementację systemów wspomagania decyzji (DSS) w zakresie precyzyjnego zarządzania wypasem kwaterowym.
+
+---
+*Projekt wykonany w środowisku Google Colab z wykorzystaniem akceleracji GPU Tesla T4.*
+
 Train models that predict pasture biomass components from pasture images (plus optional auxiliary signals like NDVI/height).
 
 This repository was created for a thesis at the Warsaw University of Life Sciences (SGGW) on “Agriculture for non-agricultural university graduates”.
