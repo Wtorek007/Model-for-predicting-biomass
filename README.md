@@ -225,5 +225,5 @@ It will write `submission.csv` with the required format (`sample_id,target`).
 ## Notes / constraints
 
 - This repository vendors a large amount of code under `third_party/`. **Do not edit `third_party/`**.
-- Dataset files and model weights are not included in this repository; you must provide them locally.
+- Dataset files and model weights are not included in this repository; you must provide them locally e.g Google Colab!
 
