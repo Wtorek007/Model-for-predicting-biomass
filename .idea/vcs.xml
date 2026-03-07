@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/DI-Retinex" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/DPT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/F-SAM" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/GSAM" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/LibMTL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/TabPFN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/albumentations" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/augmix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/c-mixup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/causal-conv1d" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/d2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/d2/ci/sub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/detectron2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/dinov3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/dinov3-finetune" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/eomt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/fixmatch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/lightly-train" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/mamba" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/multi_task_learning_pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/peft" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/pytorch-lightning" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/pytorch-lightning/_notebooks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/ray" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sam" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/uda" vcs="Git" />
+  </component>
+</project>

@@ -1,11 +1,15 @@
-# Code for contest: https://www.kaggle.com/competitions/csiro-biomass/
+# Code for contest: https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-ekologii/studia-na-wydziale/rolnictwo-dla-absolwentow-nierolniczych-studiow-wyzszych/
 
 
-# CSIRO Pasture Biomass (DINOv3 + Head)
+# Model for predicting biomass components from pasture images
 
 Train models that predict pasture biomass components from pasture images (plus optional auxiliary signals like NDVI/height).
 
-This repository was built for a competition-style setup where predictions are produced in **long CSV format** with 5 targets per image (grams):
+This repository was created for a thesis at the Warsaw University of Life Sciences (SGGW) on “Agriculture for non-agricultural university graduates”.
+Pasture biomass is a key parameter determining grazing potential, livestock production levels, and the long-term productivity and health of soils. Traditional assessment methods, such as herbometric measurements of sward height or pasture sampling, are accurate but time-consuming, costly, and difficult to apply at large scales. Approaches based on plate meters, capacitance probes, and remote sensing enable the coverage of larger areas, yet often suffer from limited precision and require manual validation.
+The aim of this thesis is to develop and preliminarily evaluate a predictive model of pasture biomass based on images and field measurements, using publicly available data from Cornell University https://arxiv.org/ electronic archive of scientific repositories. The study analyses image data combined with reference biomass measurements, and then constructs and compares selected machine learning models. Model performance is assessed using standard error metrics, which makes it possible to determine the practical usefulness of the proposed approach.
+The proposed model represents a step towards a more automated and environmentally friendly assessment of pasture biomass, based on image data and open resources. From a potential commercial perspective, this approach may be further developed using professionally annotated datasets for specific pastures, diverse species mixtures, and indicators such as the Normalized Difference Vegetation Index (NDVI). The resulting solution could support farmers and advisors in making grazing decisions, and provide a research tool for scientific institutions as Warsaw University of Life Sciences (SGGW), contributing to the development of more sustainable and productive agricultural systems. 
+Predictions are produced in **long CSV format** with 5 targets per image (grams):
 `Dry_Clover_g`, `Dry_Dead_g`, `Dry_Green_g`, `GDM_g`, `Dry_Total_g`.
 
 For detailed training + Ray Tune cluster instructions, see [`README_TRAINING.md`](README_TRAINING.md).
@@ -139,25 +143,23 @@ See [`README_TRAINING.md`](README_TRAINING.md) for the full two-node (head/worke
 
 This repo treats the **backbone** and the **regression head** as separate artifacts:
 
-- **Backbone weights**: stored under `dinov3_weights/` (one shared file per backbone variant, e.g. `dinov3_weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pt`).
-- **Head weights**: stored separately (small, head-only checkpoint).
+- **DINOv3 backbone** is fully frozen during training. A single shared file is used for all runs:
+  - Path: `dinov3_weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pt`
+  - Purpose: Loaded as the backbone weights across all experiments and inference.
 
-Typical head checkpoint locations:
+- **Regression head weights** are saved separately (small, backbone excluded):
+  - Training saves **only the final epoch** head checkpoint:
+    - Path pattern: `outputs/checkpoints/<version>/head/head-epochXXX.pt` (only one file per run)
+  - Packaged for inference at: `weights/head/infer_head.pt`
+  - Contents: `state_dict` for `model.head` and minimal `meta` (embedding_dim, num_outputs, head config).
 
-- Training saves final-epoch head checkpoint under:
-  `outputs/checkpoints/<version>/head/head-epochXXX*.pt`
-- Packaged for inference at:
-  `weights/head/infer_head.pt`
-- Lightning also saves a full `last.ckpt` (Lightning checkpoint) for backward compatibility.
+- Inference requires two inputs (new format):
+  1) DINOv3 backbone weights (`dinov3_weights/...pt`)
+  2) Regression head weights (`weights/head/infer_head.pt`)
+
+`last.ckpt` continues to be saved unchanged by Lightning for backward compatibility.
 
 Note: k-fold and `train_all` modes write under subdirectories like `fold_0/` or `train_all/` inside `outputs/` and `outputs/checkpoints/`.
-
-Inference requires both:
-
-1) a DINOv3 backbone weights file (or a directory containing official weights) via `DINO_WEIGHTS_PT_PATH` in [`infer_and_submit_pt.py`](infer_and_submit_pt.py)
-2) a head weights file or directory via `HEAD_WEIGHTS_PT_PATH` in [`infer_and_submit_pt.py`](infer_and_submit_pt.py) (for example `weights/head/`, which contains `infer_head.pt`)
-
-In directory mode, `infer_and_submit_pt.py` auto-selects the correct backbone weights file based on the configured backbone name.
 
 ## Inference / submission
 
