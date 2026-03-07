@@ -1,9 +1,8 @@
 # Code for contest: https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-ekologii/studia-na-wydziale/rolnictwo-dla-absolwentow-nierolniczych-studiow-wyzszych/
 
 
-# Model for predicting biomass components from pasture images
+# Model for predicting biomass components from pasture images (DINOv3) 🌾🤖
 
-# Model Predykcji Biomasy Pastwisk (DINOv3) 🌾🤖
 
 ### Projekt realizowany w ramach studiów podyplomowych na SGGW
 **Autor:** Marcin Wtorkiewicz  
