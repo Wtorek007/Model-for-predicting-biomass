@@ -60,7 +60,7 @@ For detailed training + Ray Tune cluster instructions, see [`README_TRAINING.md`
 ## Highlights
 
 - **Frozen DINOv3 backbone**, trainable regression head (multiple head types; Hydra config system under `conf/`).
-- **Competition-aligned metrics** (weighted multi-target scoring; see [`DESCRIPTION.md`](DESCRIPTION.md)).
+- **Region-aligned metrics** (weighted multi-target scoring; see [`DESCRIPTION.md`](DESCRIPTION.md)).
 - **Ray Tune HPO** via [`tune.py`](tune.py) and helper scripts.
 - **Inference pipeline** that can load **backbone weights + head-only weights** and write `submission.csv`.
 
