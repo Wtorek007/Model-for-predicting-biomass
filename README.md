@@ -27,11 +27,11 @@ Model został wytrenowany do jednoczesnej predykcji biomasy całkowitej oraz zie
 
 | Zmienna | MAE [g] | RMSE [g] | R² |
 | :--- | :---: | :---: | :---: |
-| **Dry Total Biomass** | 15.64 | 21.76 | **0.394** |
-| **Dry Green Biomass** | 13.77 | 19.54 | **0.407** |
+| **Dry Total Biomass** | 13.86 | 18.91 | **0.542** |
+| **Dry Green Biomass** | 12.08 | 17.46 | **0.526** |
 
 ### Wnioski z badań:
-* Współczynnik determinacji **R² ≈ 0.41** dla biomasy zielonej potwierdza wysoką zdolność modelu do ekstrakcji cech fotosyntetycznych.
+* Współczynnik determinacji **R² ≈ 0.54** dla biomasy zielonej potwierdza wysoką zdolność modelu do ekstrakcji cech fotosyntetycznych.
 * **Mapy Atencji (Attention Maps)** wykazały, że model poprawnie koncentruje się na strukturach roślinnych, ignorując glebę i cienie.
 
 ![Mapa atencji](attention_map.png)
